@@ -53,6 +53,7 @@ randomSaves = []
 for i in range(saveCount):
     saveIndex = random.randrange(0, len(abilities), 1)
     saveName = abilities[saveIndex]['name']
+    randomSaves.append(saveName)
 
 # creating a list of all skills
 # TODO: We may want to implement different probabilities for each skill
@@ -61,3 +62,15 @@ for i in range(len(abilities)):
     for j in range(len(abilities[i]['skills'])):
         skill = abilities[i]['skills'][j]
         allSkills.append(abilities[i]['skills'][j])
+
+# picking skills randomly from the list of all skills
+randomSkills = []
+for i in range(skillCount):
+    skillIndex = random.randrange(0, len(allSkills), 1)
+    skillName = allSkills[skillIndex]
+    randomSkills.append((skillName))
+
+print("Try to use these saves next session!")
+print(randomSaves)
+print("Try to use these skills next session!")
+print(randomSkills)
