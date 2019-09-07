@@ -17,3 +17,6 @@ wis = {'animal handling', 'insight', 'medicine', 'perception', 'survival'}
 # charisma skills
 cha = {'deception', 'intimidation', 'performance', 'persuasion'}
 
+#putting all the abilities and their skills into an array of abilities
+abilities = {str, dex, con, int, wis, cha}
+
