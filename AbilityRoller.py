@@ -48,11 +48,19 @@ skillCount = 3
 
 # equal probabilty for everything? Hmm... This might be changed later
 
+
+# ensuring that we aren't generating more abilities than how many exist
+if saveCount > len(abilities):
+    saveCount = len(abilities)
+
 # generate our requested number of saves
 randomSaves = []
 for i in range(saveCount):
-    saveIndex = random.randrange(0, len(abilities), 1)
-    saveName = abilities[saveIndex]['name']
+    while 1:
+        saveIndex = random.randrange(0, len(abilities), 1)
+        saveName = abilities[saveIndex]['name']
+        if saveName not in randomSaves:
+            break
     randomSaves.append(saveName)
 
 # creating a list of all skills
@@ -66,8 +74,11 @@ for i in range(len(abilities)):
 # picking skills randomly from the list of all skills
 randomSkills = []
 for i in range(skillCount):
-    skillIndex = random.randrange(0, len(allSkills), 1)
-    skillName = allSkills[skillIndex]
+    while 1:
+        skillIndex = random.randrange(0, len(allSkills), 1)
+        skillName = allSkills[skillIndex]
+        if skillName not in randomSkills:
+            break
     randomSkills.append((skillName))
 
 print("Try to use these saves next session!")
