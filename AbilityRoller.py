@@ -79,9 +79,9 @@ for i in range(skillCount):
         skillName = allSkills[skillIndex]
         if skillName not in randomSkills:
             break
-    randomSkills.append((skillName))
+    randomSkills.append(skillName)
 
-print("Try to use these saves next session!")
+print("\nTry to use these saves next session!")
 print(randomSaves)
-print("Try to use these skills next session!")
+print("\nTry to use these skills next session!")
 print(randomSkills)
