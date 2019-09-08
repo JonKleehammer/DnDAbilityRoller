@@ -5,49 +5,54 @@
 # By randomly choosing skills I try to work them into my sessions so that all skills are represented
 
 import random
+import sys
 
 # strength skills
-str = {
+strength = {
     'name': 'strength',
     'skills': ['athletics']
 }
 # dexterity skills
-dex = {
+dexterity = {
     'name': 'dexterity',
     'skills': ['acrobatics', 'sleight of hand', 'stealth']
 }
 # constitution "skills"
-con = {
+constitution = {
     'name': 'constitution',
     'skills': []
 }
 # intelligence skills
-int = {
+intelligence = {
     'name': 'intelligience',
     'skills': ['arcana', 'history', 'investigation', 'nature', 'religion']
 }
 # wisdom skills
-wis = {
+wisdom = {
     'name': 'wisdom',
     'skills': ['animal handling', 'insight', 'medicine', 'perception', 'survival']
 }
 # charisma skills
-cha = {
+charisma = {
     'name': 'charisma',
     'skills': ['deception', 'intimidation', 'performance', 'persuasion']
 }
 
 # putting all the abilities and their skills into an array of abilities
-abilities = [str, dex, con, int, wis, cha]
+abilities = [strength, dexterity, constitution, intelligence, wisdom, charisma]
 
 # Getting input from user? Just press enter to use default
-# TODO: implement this, leaving it out for faster testing
-print("How many saving throws and skill checks would you like? (default: 1 3)")
 saveCount = 1
 skillCount = 3
 
-# equal probabilty for everything? Hmm... This might be changed later
+if len(sys.argv) == 3:
+    saveCount = int(sys.argv[1])
+    skillCount = int(sys.argv[2])
+elif len(sys.argv) != 1:
+    print("Incorrect usage, use 0 arguments for default values or 2 arguments to choose")
+    exit(1)
 
+# equal probabilty for everything? Hmm... This might be changed later
 
 # ensuring that we aren't generating more abilities than how many exist
 if saveCount > len(abilities):
@@ -81,7 +86,7 @@ for i in range(skillCount):
             break
     randomSkills.append(skillName)
 
-print("\nTry to use these saves next session!")
+print("Try to use these saves next session!")
 print(randomSaves)
 print("\nTry to use these skills next session!")
 print(randomSkills)
